@@ -1,0 +1,13 @@
+body{
+    background-color: aqua;
+}
+form{
+   padding: 10px;
+}
+.bgColor{
+    background-color: bisque;
+}
+.fontSize{
+    font-size: 20px;
+    font-weight: bold;
+}

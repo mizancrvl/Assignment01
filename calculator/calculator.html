@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form class="row g-3" action=""">
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="fn" placeholder="Write First Number" />
+      </div>
+      <div class="col-md-4">
+        <select class="form-select" aria-label="Small select example" id="operator" >
+          <option selected>Select Operator</option>
+          <option value="+">Addition (+)</option>
+          <option value="-">Subtraction (-)</option>
+          <option value="*">Multiplication (*)</option>
+          <option value="/">Division (/)</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <input type="text" class="form-control" id="ln" placeholder="Write Second Number" />
+      </div>
+      
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary fontSize" onclick="calculate();return false" >Calculate
+        </button>
+      </div>
+    </form>
+    <section class="col-md-8">
+      <input type="text" class="form-control bgColor" id="result1" placeholder="Result" />
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function calculate(){
+        let x = document.getElementById('fn').value;
+        let y = document.getElementById('ln').value;
+        if(isNaN(x)|| x<1){
+          document.getElementById('fn').value = 'Please enter positive integer number';
+          document.getElementById('fn').style.backgroundColor='red';
+          document.getElementById('fn').style.color = 'yellow';
+          
+        }else if(isNaN(y)|| y<1){
+          document.getElementById('ln').value = 'Please enter positive integer number';
+          document.getElementById('ln').style.backgroundColor='red';
+          document.getElementById('ln').style.color = 'yellow';
+        }else{
+   let fn = parseInt(document.getElementById("fn").value)||0;
+   let ln = parseInt(document.getElementById("ln").value)||0;
+   
+
+   let operator = document.getElementById("operator").value;
+   var result = 0 ;
+   switch(operator){
+      case '+':
+         result = fn+ln;
+         break;
+      case '-':
+         result = fn-ln;
+         break;
+      case '*':
+         result = fn*ln;
+         break;
+      case '/':
+         result = fn/ln;
+         break;
+      default:
+         result = "invalid operator";
+         break;
+   }
+   
+
+   document.getElementById("result1").value = result;
+        }
+   
+}
+
+    </script>
+  </body>
+</html>
